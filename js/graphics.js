@@ -23,8 +23,13 @@ function drawmap(){
 function clearcanvas(){
 ctx.clearRect(0, 0, canvas.width, canvas.height)
 }
-drawmap()
 function mouseclick(x,y){
+var A_t = []
 
-ctx.drawImage(img_patate,x,y,32,32)
+A_t.push(1)
+A_t.push(x)
+A_t.push(y)
+A_t.push(32)
+A_t.push(32)
+A_unites.push(A_t)
 }

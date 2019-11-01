@@ -10,7 +10,7 @@ var lastFrameTimeMs = 0, // The last time the loop was run
 var map_main_height=640, map_main_width=640
 var tmap_x=0,tmap_y=0,tmap_w=320,tmap_h=320; //tmap_nx=5,tmap_ny=5;
 var tmap_tw=64,tmap_th=64;  // Dimensions of a tile
-
+var A_unites=[]
 // Assumes we've added <div id="fpsDisplay"></div> to the HTML
 var fpsDisplay = document.getElementById('fpsDisplay');
 var canvas = document.getElementById("map_main");
@@ -30,7 +30,7 @@ function mainLoop(timestamp) {
   // Track the accumulated time that hasn't been simulated yet
   delta += timestamp - lastFrameTimeMs; // note += here, we need to keep the leftover time from the last frame
   lastFrameTimeMs = timestamp;
- 
+
   // Simulate the total elapsed time in fixed-size chunks
   var numUpdateSteps = 0;
   while (delta >= updateperiod) {
@@ -42,7 +42,7 @@ function mainLoop(timestamp) {
       break; // bail out
     }
   }
-  
+
   //Calculate the FPS every fpsUpdatePeriod miliseconds
   if (timestamp > lastFpsUpdate + fpsUpdatePeriod) { // update every fpsUpdatePeriod miliseconds
     fps = ( 0.25 * framesThisSecond + (1 - 0.25) * fps ) / (fpsUpdatePeriod/1000) ; // compute the new FPS, 0.25 is how much the new period is weighted
@@ -50,7 +50,7 @@ function mainLoop(timestamp) {
     framesThisSecond = 0;
   }
   framesThisSecond++;
-  
+
   requestAnimationFrame(mainLoop);
   lastFrameTimeMs = timestamp;
   update(delta); // pass delta to update
@@ -68,6 +68,16 @@ function update(delta) {
 
 function draw() {
   fpsDisplay.textContent = Math.round(fps) + ' FPS'; // display the FPS
+  clearcanvas()
+  for(var y = 0; y<= A_unites.length-1;++y ){
+      if (A_unites[y][0]==1){
+          ctx.drawImage(img_patate,A_unites[y][1],A_unites[y][2],A_unites[y][3],A_unites[y][4])
+          A_unites[y][1]+=1
+
+
+
+    }
+  }
 }
 
 
@@ -83,7 +93,6 @@ function getPosition(event)
     var m_y = event.y;
     m_x -= canvas.offsetLeft;
     m_y -= canvas.offsetTop;
-    console.log(m_x,m_y)
     mouseclick(m_x,m_y)
 }
 
