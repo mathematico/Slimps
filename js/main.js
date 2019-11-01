@@ -6,3 +6,15 @@ var canvas = document.getElementById("map_main");
 canvas.width=640
 canvas.height=320
 var ctx = canvas.getContext("2d");
+
+canvas.addEventListener("mousedown", getPosition, false);
+
+function getPosition(event)
+{
+  var m_x = event.x;
+  var m_y = event.y;
+  m_x -= canvas.offsetLeft;
+  m_y -= canvas.offsetTop;
+console.log(m_x,m_y)
+  mouseclick(m_x,m_y)
+}
