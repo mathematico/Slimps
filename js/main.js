@@ -44,7 +44,7 @@ function mainLoop(timestamp) {
   }
 
   //Calculate the FPS every fpsUpdatePeriod miliseconds
-  if (timestamp > lastFpsUpdate + fpsUpdatePeriod) { // update every fpsUpdatePeriod miliseconds
+  if (timestamp > lastFpsUpdate + fpsUpdatePeriod) { // update every fpsUpdatePeriod miliseconds... WRONG IF fpsUpdatePeriod != 1000  :(
     fps = ( 0.25 * framesThisSecond + (1 - 0.25) * fps ) / (fpsUpdatePeriod/1000) ; // compute the new FPS, 0.25 is how much the new period is weighted
     lastFpsUpdate = timestamp;
     framesThisSecond = 0;
