@@ -24,12 +24,22 @@ function clearcanvas(){
 ctx.clearRect(0, 0, canvas.width, canvas.height)
 }
 function mouseclick(x,y){
-var A_t = []
 
-A_t.push(1)
-A_t.push(x)
-A_t.push(y)
-A_t.push(32)
-A_t.push(32)
-A_unites.push(A_t)
+A_unites.push( new Unit(x,y) );
+}
+function draw() {
+  fpsDisplay.textContent = Math.round(fps) + ' FPS'; // display the FPS
+  clearcanvas()
+  drawmap()
+  for(var y = 0; y<= A_unites.length-1;++y ){
+
+      if ( A_unites[y].hp > 0) {  //if unit is valid...
+          var u = A_unites[y]
+          ctx.drawImage(u.textureAtlas, u.x, u.y, u.width, u.heigth)
+      }
+
+
+
+
+  }
 }

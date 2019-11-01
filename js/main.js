@@ -62,23 +62,16 @@ function mainLoop(timestamp) {
 
 //if all goes well, delta == updateperiod
 function update(delta) {
-  return;
-}
-
-
-function draw() {
-  fpsDisplay.textContent = Math.round(fps) + ' FPS'; // display the FPS
-  clearcanvas()
   for(var y = 0; y<= A_unites.length-1;++y ){
-      if (A_unites[y][0]==1){
-          ctx.drawImage(img_patate,A_unites[y][1],A_unites[y][2],A_unites[y][3],A_unites[y][4])
-          A_unites[y][1]+=1
-
-
-
+  //  if ( A_unites[y].hp > 0 ) {  //if unit is valid...
+      //  var u = A_unites[y]
+      //  u.move(u.spd, 0)
     }
-  }
 }
+
+
+
+
 
 
 //take measures  that speed  up the execution of the code, like disabling unimportant tasks
