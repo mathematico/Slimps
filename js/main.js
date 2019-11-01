@@ -83,7 +83,7 @@ function draw() {
 
 //take measures  that speed  up the execution of the code, like disabling unimportant tasks
 function panic() {
-  delta = 0;  //I guess setting the heap of updates that need to be done back to 0 will help catch up !
+//  delta = 0;  //I guess setting the heap of updates that need to be done back to 0 will help catch up !
 }
 
 
