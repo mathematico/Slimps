@@ -63,9 +63,10 @@ function mainLoop(timestamp) {
 //if all goes well, delta == updateperiod
 function update(delta) {
   for(var y = 0; y<= A_unites.length-1;++y ){
-  //  if ( A_unites[y].hp > 0 ) {  //if unit is valid...
-      //  var u = A_unites[y]
-      //  u.move(u.spd, 0)
+  if ( A_unites[y].hp > 0 ) {  //if unit is valid...
+       var u = A_unites[y]
+       u.move(u.spd, 0)
+     }
     }
 }
 

@@ -11,7 +11,7 @@ img_patate.src="./Resources/patate.png"
 function drawmap(){
   for(var y =0; y<= tmap.length-1;++y ){
     for(var x=0; x<=tmap[y].length-1;++x){
-      console.log(x,y)
+
       if (tmap[y][x]==1){
         ctx.drawImage(img_gazon, x*tmap_tw +tmap_x, y*tmap_th+tmap_y,tmap_tw,tmap_th)
       }else if (tmap[y][x]==2) {
