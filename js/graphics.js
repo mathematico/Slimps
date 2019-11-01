@@ -11,7 +11,6 @@ img_patate.src="./Resources/patate.png"
 function drawmap(){
   for(var y =0; y<= tmap.length-1;++y ){
     for(var x=0; x<=tmap[y].length-1;++x){
-
       if (tmap[y][x]==1){
         ctx.drawImage(img_gazon, x*tmap_tw +tmap_x, y*tmap_th+tmap_y,tmap_tw,tmap_th)
       }else if (tmap[y][x]==2) {
@@ -35,7 +34,7 @@ function draw() {
 
       if ( A_unites[y].hp > 0) {  //if unit is valid...
           var u = A_unites[y]
-          ctx.drawImage(u.textureAtlas, u.x, u.y, u.width, u.heigth)
+          ctx.drawImage(u.texAtlas, u.x, u.y, u.width, u.heigth)
       }
 
 

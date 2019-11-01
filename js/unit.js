@@ -4,7 +4,7 @@ var unitTexture = new Image(32, 32);
 unitTexture.src="./Resources/patate.png"
 
 class Unit {
-  textureAtlas;
+  texAtlas  = null;
   x = 0;
   y = 0;
   width = 32;
@@ -21,7 +21,7 @@ class Unit {
     this.spd = 1;
     this.width = 32;
     this.heigth = 32;
-    this.textureAtlas = unitTexture
+    this.texAtlas = unitTexture
   }
 
   move(xdir, ydir) {
