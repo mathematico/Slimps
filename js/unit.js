@@ -34,4 +34,6 @@ class Unit {
   move(xdir, ydir) {
     this.x += xdir
     this.y += ydir
+  }
+
 }
