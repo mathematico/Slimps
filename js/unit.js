@@ -34,6 +34,10 @@ class Unit {
   move(xdir, ydir) {
     this.x += xdir
     this.y += ydir
+      if (this.x>map_main_width) {
+        this.deleteme = true ;
+        //console.log(A_unites.length)
+    }
   }
 
 }
