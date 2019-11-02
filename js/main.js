@@ -10,7 +10,10 @@ var lastFrameTimeMs = 0, // The last time the loop was run
 var map_main_height=640, map_main_width=640
 var tmap_x=0,tmap_y=0,tmap_w=320,tmap_h=320; //tmap_nx=5,tmap_ny=5;
 var tmap_tw=64,tmap_th=64;  // Dimensions of a tile
+
 var A_unites=[]
+var A_unites_ysorted = []
+
 // Assumes we've added <div id="fpsDisplay"></div> to the HTML
 var fpsDisplay = document.getElementById('fpsDisplay');
 var canvas = document.getElementById("map_main");
@@ -19,6 +22,26 @@ canvas.height=320
 var ctx = canvas.getContext("2d");
 
 canvas.addEventListener("mousedown", getPosition, false);
+
+
+function add_unit(u) {
+  for(var i = 0; i<= A_unites.length-1;++i ) {
+    if (A_unites[i].deleteme) {
+      A_unites[i] = u ;
+      A_unites_ysorted = [...A_unites]   // a REAL  copy of A_unites, so modifying its order won t affect A_unites
+      A_unites_ysorted.sort(ysort) ;
+      return;
+    }
+  }
+  A_unites.push(u) ;
+  A_unites_ysorted = [...A_unites]   // a REAL  copy of A_unites, so modifying its order won t affect A_unites
+  A_unites_ysorted.sort(ysort) ;
+}
+
+
+
+
+
 
 
 function mainLoop(timestamp) {
@@ -63,7 +86,7 @@ function mainLoop(timestamp) {
 //if all goes well, delta == updateperiod
 function update(delta) {
   for(var y = 0; y<= A_unites.length-1;++y ){
-  if ( A_unites[y].hp > 0 ) {  //if unit is valid...
+  if ( ! A_unites[y].deleteme) {  //if unit is valid...
        var u = A_unites[y]
        u.move(u.spd, 0)
      }
