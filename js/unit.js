@@ -34,6 +34,8 @@ class Unit {
   move(xdir, ydir) {
     this.x += xdir
     this.y += ydir
+    if ( this.x > canvas.width+20) :
+      deleteme = true
   }
 
 }
