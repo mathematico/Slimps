@@ -20,20 +20,24 @@ function drawmap(){
   }
 }
 function clearcanvas(){
-ctx.clearRect(0, 0, canvas.width, canvas.height)
+  ctx.clearRect(0, 0, canvas.width, canvas.height)
 }
-function mouseclick(x,y){
 
-A_unites.push( new Unit(x,y) );
+function mouseclick(x,y){
+  //A_unites.push( new Unit(x,y) );
+  console.log("Adding Unit ! ");
+  add_unit( new Unit(x,y) ) ;
 }
+
 function draw() {
+  //console.log(A_unites.length);
   fpsDisplay.textContent = Math.round(fps) + ' FPS'; // display the FPS
   clearcanvas()
   drawmap()
-  for(var y = 0; y<= A_unites.length-1;++y ){
+  for(var y = 0; y<= A_unites_ysorted.length-1;++y ){
 
-      if ( A_unites[y].hp > 0) {  //if unit is valid...
-          var u = A_unites[y]
+      if ( ! A_unites_ysorted[y].deleteme) {  //if unit is valid...
+          var u = A_unites_ysorted[y]
           ctx.drawImage(u.texAtlas, u.x, u.y, u.width, u.heigth)
       }
 
