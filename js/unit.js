@@ -1,7 +1,18 @@
-//functions for sorting an array of Units,   usage :    A_unites.sort(ysort)
-function ysort(a,b) {
-  return a.y > b.y ? 1 : (a.y == b.y ? 0 : -1)
+// Add the unit to A_unites, overwriting deleted units if one is found, then adds units to the ysort-ed  real copy of A units
+function add_unit(u) {
+  for(var i = 0; i<= A_unites.length-1;++i ) {
+    if (A_unites[i].deleteme) {
+      A_unites[i] = u ;
+      A_unites_ysorted = [...A_unites]   // a REAL  copy of A_unites, so modifying its order won t affect A_unites
+      A_unites_ysorted.sort(ysort) ;
+      return;
+    }
   }
+  A_unites.push(u) ;
+  A_unites_ysorted = [...A_unites]   // a REAL  copy of A_unites, so modifying its order won t affect A_unites
+  A_unites_ysorted.sort(ysort) ;
+}
+
 
 
 //Base class for Units, do not use directly. Use classes that inherit from it.
