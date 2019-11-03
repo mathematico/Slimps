@@ -8,6 +8,12 @@ var img_patate= new Image();
 img_patate.src="./Resources/patate.png"
 
 
+//function for sorting an array of Units, Building etc for drawing,   usage :    A_unites.sort(ysort)
+function ysort(a,b) {
+  return a.y > b.y ? 1 : (a.y == b.y ? 0 : -1)
+}
+
+
 function drawmap(){
   for(var x =0; x<= tmap.length-1;++x ){
     for(var y=0; y<=tmap[x].length-1;++y){
@@ -26,21 +32,17 @@ function clearcanvas(){
   ctx.clearRect(0, 0, canvas.width, canvas.height)
 }
 
+
 function mouseclick(x,y){
   var xc= math.floor(x/tmap_tw)
   var yc= math.floor(y/tmap_th)
   if(x<=tmap_w&&tmap_x<=x&&y<=tmap_h&&tmap_y<=y){
-
     newbuilding(xc,yc)
-
   }else{
     console.log("Adding Unit ! ");
     add_unit( new Unit(x,y) ) ;
     A_unites.push( new Unit(x,y) );
   }
-
-
-
 }
 
 function draw() {
