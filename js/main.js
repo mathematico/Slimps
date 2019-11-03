@@ -112,6 +112,11 @@ function getPosition(event)
     mouseclick(m_x,m_y)
 }
 
+function on_selected_building_type(i) {
+	console.log("on_selected_building_type ",i)
+}
+
+
 
 // Start things off
 requestAnimationFrame(mainLoop);
