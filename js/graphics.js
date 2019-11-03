@@ -9,12 +9,15 @@ img_patate.src="./Resources/patate.png"
 
 
 function drawmap(){
-  for(var y =0; y<= tmap.length-1;++y ){
-    for(var x=0; x<=tmap[y].length-1;++x){
-      if (tmap[y][x]==1){
+  for(var x =0; x<= tmap.length-1;++x ){
+    for(var y=0; y<=tmap[x].length-1;++y){
+      if (tmap[x][y]==1){
         ctx.drawImage(img_gazon, x*tmap_tw +tmap_x, y*tmap_th+tmap_y,tmap_tw,tmap_th)
-      }else if (tmap[y][x]==2) {
+      }else if (tmap[x][y]==2) {
         ctx.drawImage(img_gazon_route, x*tmap_tw +tmap_x, y*tmap_th+tmap_y,tmap_tw,tmap_th)
+      }else{
+        u=tmap[x][y]
+        ctx.drawImage(u.texAtlas,u.x*tmap_tw +tmap_x,y*tmap_th+tmap_y,64,64)
       }
     }
   }
@@ -24,9 +27,20 @@ function clearcanvas(){
 }
 
 function mouseclick(x,y){
-  //A_unites.push( new Unit(x,y) );
-  console.log("Adding Unit ! ");
-  add_unit( new Unit(x,y) ) ;
+  var xc= math.floor(x/tmap_tw)
+  var yc= math.floor(y/tmap_th)
+  if(x<=tmap_w&&tmap_x<=x&&y<=tmap_h&&tmap_y<=y){
+
+    newbuilding(xc,yc)
+
+  }else{
+    console.log("Adding Unit ! ");
+    add_unit( new Unit(x,y) ) ;
+    A_unites.push( new Unit(x,y) );
+  }
+
+
+
 }
 
 function draw() {

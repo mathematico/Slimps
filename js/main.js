@@ -12,6 +12,7 @@ var tmap_x=0,tmap_y=0,tmap_w=320,tmap_h=320; //tmap_nx=5,tmap_ny=5;
 var tmap_tw=64,tmap_th=64;  // Dimensions of a tile
 
 var A_unites=[]
+var A_building=[]
 var A_unites_ysorted = []
 
 // Assumes we've added <div id="fpsDisplay"></div> to the HTML
