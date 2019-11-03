@@ -3,7 +3,12 @@
 <title>Slimps</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-
+<noscript>
+	<div id="checkJavascript" style="position: absolute; height: 100%; width: 100%; font-size: 2vw; padding: 10%; color: white; background-color: black; z-index: 1000000;">
+		For some reason, your browser is having trouble loading this game. This game runs on javascript, and if you have an addon such as noscript, you may need to tell it to allow scripts from http://trimps.github.io, which is where this game is hosted.<br/><br/>
+		If you are not using any addons that might interfere with javascript, try using the latest versions of Chrome or Firefox. 
+	</div>
+</noscript
 
 <style id="compiled-css" type="text/css">
 	.wrapper {
@@ -64,7 +69,20 @@
 
 	<div class="wrapper">
 		<div class="buildingsbuttonsframe">
-			buildingsbuttonsframe
+			Building type : <br>
+			<input type="radio" name="pickbuildingtype" value="HOUSE"> Villager House<br>
+			<input type="radio" name="pickbuildingtype" value="FARM"> Food Farm<br>
+			<input type="radio" name="pickbuildingtype" value="MINE"> Ore Mine <br>
+			<input type="radio" name="pickbuildingtype" value="CMINE"> Crystal Mine<br>
+			Click empty lot to build
+
+			<button onclick=on_selected_building_type(0) style="width: 150px; height: 50px;border: 0; cursor:pointer; background: transparent url(Resources/buildbutbgoff.png) no-repeat center top;">
+				<!---  calls a function in main.js --->
+				<img src="Resources/building/48x48.png" style="position:relative; right:50px; top:1px" alt="MINE" />
+			</button>
+
+			
+			
 		</div>
 		<div class="canvasframe">
 			<canvas id="map_main"  style="border:1px solid #c3c3c3;" ></canvas>
