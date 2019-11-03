@@ -3,17 +3,95 @@
 <title>Slimps</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
+
+
+<style id="compiled-css" type="text/css">
+	.wrapper {
+	  display: grid;
+	  grid-template-columns: repeat(3, 1fr);
+	  grid-gap: 10px;
+	  grid-auto-rows: minmax(100px, auto);
+	}
+	.buildingsbuttonsframe {
+	  grid-column: 1 / 2;
+	  grid-row: 1;
+	  background-color: #8ca0ff;
+	}
+	.canvasframe { 
+	  grid-column: 2 / 3;
+	  grid-row: 1 ;
+	  background-color: #ffa08c;
+	}
+	.rightpanel {
+	  grid-column: 3/  4;
+	  grid-row: 1;
+	  background-color: #8cffa0;
+	}
+	.four {
+	  grid-column: 3;
+	  grid-row: 3;
+	}
+	.five {
+	  grid-column: 2;
+	  grid-row: 4;
+	}
+	.six {
+	  grid-column: 3;
+	  grid-row: 4;
+	}
+</style>
+
+
+
+
+
+
+
 <body>
-<p>blabla</p>
-<div id="fpsDisplay"></div>
-<button  onclick=drawmap() >click to draw map</button>
-<button  onclick=clearcanvas() >click to clear canvas</button>
-  <canvas id="map_main"  style="border:1px solid #c3c3c3;" ></canvas>
-  <script src="js/math.js"></script>
-  <script src="js/unit.js"></script>
-  <script src="js/mainmap.js"></script>
-  <script src="js/graphics.js"></script>
-  <script src="js/main.js"></script>
-  <script src="js/building.js"></script>
+	<noscript>
+		<div id="checkJavascript" style="position: absolute; height: 100%; width: 100%; font-size: 2vw; padding: 10%; color: white; background-color: black; z-index: 1000000;">
+			For some reason, your browser is having trouble loading this game. This game runs on javascript, and if you have an addon such as noscript, you may need to tell it to allow scripts from http://trimps.github.io, which is where this game is hosted.<br/><br/>
+			If you are not using any addons that might interfere with javascript, try using the latest versions of Chrome or Firefox. 
+		</div>
+	</noscript>
+	
+	<p>blabla</p>
+	<div id="fpsDisplay"></div>
+	<p>
+		<button  onclick=drawmap() >click to draw map</button>
+		<button  onclick=clearcanvas() >click to clear canvas</button>
+	</p>
+
+	<div class="wrapper">
+		<div class="buildingsbuttonsframe">
+			buildingsbuttonsframe
+		</div>
+		<div class="canvasframe">
+			<canvas id="map_main"  style="border:1px solid #c3c3c3;" ></canvas>
+		</div>
+		<div class="rightpanel">
+			rightpanel
+		</div>
+		<div class="four">
+			Four
+		</div>
+		<div class="five">
+			Five
+		</div>
+		<div class="six">
+			Six
+		</div>
+	</div>
+	
+
+
+
+
+	<script src="js/math.js"></script>
+	<script src="js/unit.js"></script>
+	<script src="js/mainmap.js"></script>
+  	<script src="js/graphics.js"></script>
+	<script src="js/main.js"></script>
+	<script src="js/building.js"></script>
 </body>
 </html>
