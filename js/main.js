@@ -7,9 +7,7 @@ var lastFrameTimeMs = 0, // The last time the loop was run
     updateperiod = 1000 / maxFPS,  //the set period at which update will be called, if possible
     delta = 0; // The delta time since last frame
 
-var map_main_height=640, map_main_width=640
-var tmap_x=0,tmap_y=0,tmap_w=320,tmap_h=320; //tmap_nx=5,tmap_ny=5;
-var tmap_tw=64,tmap_th=64;  // Dimensions of a tile
+
 
 var A_unites=[]
 var A_building=[]

@@ -58,9 +58,9 @@ function newbuilding(x,y){
   }
   }
 
-    for(var z = 0; z<= A_building.length-1;++z ){
+    for(var z = 0; z<= A_building.length-1;++z ){   //update ALL OF tmap_buildings. Probably overkill.
       u=A_building[z]
-      tmap[u.x][u.y]=u
+      tmap_buildings[u.x][u.y]=u
 
     }
 }
