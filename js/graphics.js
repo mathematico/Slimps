@@ -46,22 +46,29 @@ function clearcanvas(){
 
 
 function mouseclick(x,y){
-    if ( (x<=tmap_x+tmap_w&&tmap_x<=x&&y<=tmap_y+tmap_h&&tmap_y<=y) //clicked on the village
+	if ( (x<=tmap_x+tmap_w&&tmap_x<=x&&y<=tmap_y+tmap_h&&tmap_y<=y) //clicked on the village
         && ( (x-tmap_x)%tmap_tw < tmap_bw && (y-tmap_y)%tmap_th > tmap_th-tmap_bh ) ) { // didn't click on a road
-        var xc= math.floor((x-tmap_x)/tmap_tw)
-        var yc= math.floor((y-tmap_y)/tmap_th)
-	if (  tmap_buildings[xc][yc]== selected_building_type ) {
-		console.log("already  a building of type ",selected_building_type,"here.")
-		return;
+		var xc= math.floor((x-tmap_x)/tmap_tw)
+		var yc= math.floor((y-tmap_y)/tmap_th)
+
+		if (is_constructing) { // In construction menu
+			if (  tmap_buildings[xc][yc]== selected_building_type ) {
+				console.log("already  a building of type ",selected_building_type,"here.")
+				return;
+			}
+			newbuilding(xc,yc, selected_building_type)
+			console.log("new building at", xc, ",",yc, ", type : ", selected_building_type)
 		}
-        newbuilding(xc,yc, selected_building_type)
-        console.log("new building at", xc, ",",yc, ", type : ", selected_building_type)
-    }
-    if ( x>tmap_x+tmap_w ) {
-        console.log("Adding Unit ! ");
-        add_unit( new Unit(x,y) ) ;
-        A_unites.push( new Unit(x,y) );
-    }
+		else{  // Not in construction menu
+			console.log("is_constructing is ", is_constructing, ", you should see the building details menu for the building at ",xc,",",yc)
+			display_info_on_building_at(xc,yc);
+		}
+	}
+	if ( x>tmap_x+tmap_w ) {
+		console.log("Adding Unit ! ");
+		add_unit( new Unit(x,y) ) ;
+		A_unites.push( new Unit(x,y) );
+	}
 }
 
 function draw() {
@@ -75,9 +82,5 @@ function draw() {
 			ctx.drawImage(u.texAtlas, u.x, u.y, u.width, u.heigth)
 		}
 	}
-	var temprestext = "";
-	for (var i = 0; i <= ressources_stock.length-1;++i ) {
-		temprestext = temprestext + "<br>" + ressources[i]+ " : "+  ressources_stock[i] ;
-	}
-	ressources_list_element.innerHTML =temprestext;
+	display_ressources_element()
 }
