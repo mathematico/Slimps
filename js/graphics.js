@@ -7,7 +7,7 @@ var img_villageground= new Image();
 img_villageground.src="./Resources/villlage_ground.png"
 
 var img_emptylot= new Image();
-img_emptylot.src="./Resources/emptylot.png"
+img_emptylot.src="./Resources/building/emptylot.png"
 
 var img_patate= new Image();
 img_patate.src="./Resources/patate.png"
@@ -50,8 +50,12 @@ function mouseclick(x,y){
         && ( (x-tmap_x)%tmap_tw < tmap_bw && (y-tmap_y)%tmap_th > tmap_th-tmap_bh ) ) { // didn't click on a road
         var xc= math.floor((x-tmap_x)/tmap_tw)
         var yc= math.floor((y-tmap_y)/tmap_th)
-        newbuilding(xc,yc)
-        console.log("new building at", xc, ",",yc)
+	if (  tmap_buildings[xc][yc]== selected_building_type ) {
+		console.log("already  a building of type ",selected_building_type,"here.")
+		return;
+		}
+        newbuilding(xc,yc, selected_building_type)
+        console.log("new building at", xc, ",",yc, ", type : ", selected_building_type)
     }
     if ( x>tmap_x+tmap_w ) {
         console.log("Adding Unit ! ");
