@@ -7,7 +7,7 @@ var lastFrameTimeMs = 0, // The last time the loop was run
     updateperiod = 1000 / maxFPS,  //the set period at which update will be called, if possible
     delta = 0; // The delta time since last frame
 
-
+var selected_building_type = 0;
 
 var A_unites=[]
 var A_building=[]
@@ -16,6 +16,9 @@ var A_unites_ysorted = []
 // Assumes we've added <div id="fpsDisplay"></div> to the HTML
 var fpsDisplay = document.getElementById('fpsDisplay');
 var canvas = document.getElementById("map_main");
+
+var selected_building_preview_element = document.getElementById("selected_building_preview_img");
+
 canvas.width=640
 canvas.height=320
 var ctx = canvas.getContext("2d");
@@ -86,8 +89,8 @@ function mainLoop(timestamp) {
 function update(delta) {
   for(var y = 0; y<= A_unites.length-1;++y ){
   if ( ! A_unites[y].deleteme) {  //if unit is valid...
-       var u = A_unites[y]
-       u.move(u.spd, 0)
+       var u = A_unites[y];
+       u.move(u.spd, 0);
      }
     }
 }
@@ -113,7 +116,9 @@ function getPosition(event)
 }
 
 function on_selected_building_type(i) {
-	console.log("on_selected_building_type ",i)
+	selected_building_type = i;
+	console.log("on_selected_building_type ",selected_building_type);
+	selected_building_preview_element.src = map_building_type_to_img.get(selected_building_type).src;
 }
 
 
