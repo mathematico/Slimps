@@ -65,19 +65,19 @@ function mouseclick(x,y){
 }
 
 function draw() {
-  //console.log(A_unites.length);
-  fpsDisplay.textContent = Math.round(fps) + ' FPS'; // display the FPS
-  clearcanvas()
-  drawmap()
-  for(var y = 0; y<= A_unites_ysorted.length-1;++y ){
-
-      if ( ! A_unites_ysorted[y].deleteme) {  //if unit is valid...
-          var u = A_unites_ysorted[y]
-          ctx.drawImage(u.texAtlas, u.x, u.y, u.width, u.heigth)
-      }
-
-
-
-
-  }
+	//console.log(A_unites.length);
+	fpsDisplay.textContent = Math.round(fps) + ' FPS'; // display the FPS
+	clearcanvas()
+	drawmap()
+	for(var y = 0; y<= A_unites_ysorted.length-1;++y ){
+		if ( ! A_unites_ysorted[y].deleteme) {  //if unit is valid...
+			var u = A_unites_ysorted[y]
+			ctx.drawImage(u.texAtlas, u.x, u.y, u.width, u.heigth)
+		}
+	}
+	var temprestext = "";
+	for (var i = 0; i <= ressources_stock.length-1;++i ) {
+		temprestext = temprestext + "<br>" + ressources[i]+ " : "+  ressources_stock[i] ;
+	}
+	ressources_list_element.innerHTML =temprestext;
 }
