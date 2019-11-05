@@ -70,16 +70,15 @@
 	<div class="wrapper">
 		<div class="buildingsbuttonsframe">
 			Building type : <br>
-			<input type="radio" name="pickbuildingtype" value="HOUSE"> Villager House<br>
-			<input type="radio" name="pickbuildingtype" value="FARM"> Food Farm<br>
-			<input type="radio" name="pickbuildingtype" value="MINE"> Ore Mine <br>
-			<input type="radio" name="pickbuildingtype" value="CMINE"> Crystal Mine<br>
+			Secected : <img id="selected_building_preview_img" src="./Resources/building/emptylot.png" alt="Selection" /> <br>
+			<button  onclick=on_selected_building_type(1) > House </button>
+			<button  onclick=on_selected_building_type(2) > Farm </button>
+			<button  onclick=on_selected_building_type(3) > Stone Mine </button>
+			<button  onclick=on_selected_building_type(4) > Crystal Mine </button>
+			<br>
 			Click empty lot to build
 
-			<button onclick=on_selected_building_type(0) style="width: 150px; height: 50px;border: 0; cursor:pointer; background: transparent url(Resources/buildbutbgoff.png) no-repeat center top;">
-				<!---  calls a function in main.js --->
-				<img src="Resources/building/48x48.png" style="position:relative; right:50px; top:1px" alt="MINE" />
-			</button>
+
 
 			
 			
