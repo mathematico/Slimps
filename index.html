@@ -12,25 +12,31 @@
 
 <style id="compiled-css" type="text/css">
 	.wrapper {
-	  display: grid;
-	  grid-template-columns: repeat(3, 1fr);
-	  grid-gap: 10px;
-	  grid-auto-rows: minmax(100px, auto);
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		grid-gap: 10px;
+		grid-auto-rows: minmax(100px, auto);
+	}
+	.tabbar {
+		hover{color:#fff!important;background-color:#000!important}
+		width:100%;
+		overflow:hidden;
+		display:inline-block;
 	}
 	.buildingsbuttonsframe {
-	  grid-column: 1 / 2;
-	  grid-row: 1;
-	  background-color: #8ca0ff;
+		grid-column: 1 / 2;
+		grid-row: 1;
+		background-color: #8ca0ff;
 	}
 	.canvasframe { 
-	  grid-column: 2 / 3;
-	  grid-row: 1 ;
-	  background-color: #ffa08c;
+		grid-column: 2 / 3;
+		grid-row: 1 ;
+		background-color: #ffa08c;
 	}
 	.rightpanel {
-	  grid-column: 3/  4;
-	  grid-row: 1;
-	  background-color: #8cffa0;
+		grid-column: 3/  4;
+		grid-row: 1;
+		background-color: #8cffa0;
 	}
 	.four {
 	  grid-column: 3;
@@ -68,18 +74,25 @@
 	</p>
 
 	<div class="wrapper">
+
 		<div class="buildingsbuttonsframe">
-			Building type : <br>
-			Secected : <img id="selected_building_preview_img" src="./Resources/building/emptylot.png" alt="Selection" /> <br>
-			<button  onclick=on_selected_building_type(1) > House </button>
-			<button  onclick=on_selected_building_type(2) > Farm </button>
-			<button  onclick=on_selected_building_type(3) > Stone Mine </button>
-			<button  onclick=on_selected_building_type(4) > Crystal Mine </button>
-			<br>
-			Click empty lot to build<br>
-			<br>
-			Ressources :<br>
-			<p id="ressources_list_element"> </p>
+			<div class="tabbar">
+				<button class="btab" onclick=openlefttab(0)>Details</button>
+				<button class="btab" onclick=openlefttab('1')>Build</button>
+			</div>
+			<div id="buildinginfomenu" style="display:none">
+				I GIV U INFO ON BILDINZ
+			</div>
+			<div id="selectbuildingmenu" style="display:none">
+				Building type : <br>
+				Secected : <img id="selected_building_preview_img" src="./Resources/building/emptylot.png" alt="Selection" /> <br>
+				<button  onclick=on_selected_building_type(1) > House </button>
+				<button  onclick=on_selected_building_type(2) > Farm </button>
+				<button  onclick=on_selected_building_type(3) > Stone Mine </button>
+				<button  onclick=on_selected_building_type(4) > Crystal Mine </button>
+				<br>
+				Click empty lot to build<br>
+			</div>
 
 			
 		</div>
@@ -88,7 +101,8 @@
 			<canvas id="map_main"  style="border:1px solid #c3c3c3;" ></canvas>
 		</div>
 		<div class="rightpanel">
-			rightpanel
+			Ressources :<br>
+			<p id="ressources_list_element"> </p>
 		</div>
 		<div class="four">
 			Four
@@ -104,7 +118,7 @@
 
 
 
-
+	<script src="js/htmldisplay.js"></script>
 	<script src="js/math.js"></script>
 	<script src="js/unit.js"></script>
 	<script src="js/mainmap.js"></script>
