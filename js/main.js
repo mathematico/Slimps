@@ -121,11 +121,7 @@ function getPosition(event)
     mouseclick(m_x,m_y)
 }
 
-function on_selected_building_type(i) {
-	selected_building_type = i;
-	//~ console.log("on_selected_building_type ",selected_building_type);
-	selected_building_preview_element.src = map_building_type_to_img.get(selected_building_type).src;
-}
+
 
 
 
