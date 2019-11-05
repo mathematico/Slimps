@@ -13,11 +13,17 @@ var A_unites=[]
 var A_building=[]
 var A_unites_ysorted = []
 
+var HUMAN = 0, FOOD = 1, ORE = 2, CRYSTAL = 3;
+var ressources = ["humans","food", "metal", "crystal"]
+var ressources_stock = [0,0, 0, 0]
+
+
 // Assumes we've added <div id="fpsDisplay"></div> to the HTML
 var fpsDisplay = document.getElementById('fpsDisplay');
 var canvas = document.getElementById("map_main");
 
 var selected_building_preview_element = document.getElementById("selected_building_preview_img");
+var ressources_list_element = document.getElementById("ressources_list_element");
 
 canvas.width=640
 canvas.height=320
@@ -117,7 +123,7 @@ function getPosition(event)
 
 function on_selected_building_type(i) {
 	selected_building_type = i;
-	console.log("on_selected_building_type ",selected_building_type);
+	//~ console.log("on_selected_building_type ",selected_building_type);
 	selected_building_preview_element.src = map_building_type_to_img.get(selected_building_type).src;
 }
 
